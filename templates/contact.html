@@ -1,0 +1,182 @@
+{% extends 'template.html'%}
+{%load static%}
+{%block title%}Contact {%endblock%}
+{%block mincss%}
+<link rel="stylesheet" href="{% static 'css/contact.min.css' %}" />
+{%endblock%}
+
+{%block links%}contact{%endblock%}
+{%block links2%}contact{%endblock%}
+{%block content%}
+<header class="page">
+    <div class="page_shapes">
+        <img class="shape shape--left" src="{% static 'svg/ovalblue.svg'%}" alt="Contact Us" />
+        <img class="shape shape--right" src="{% static 'svg/bgshape_white2.svg'%}" alt="Contact Us" />
+    </div>
+    <div class="container">
+        <ul class="breadcrumbs d-flex flex-wrap">
+            <li class="breadcrumbs_item">
+                <a class="link" href="{% url 'index'%}">Home</a>
+            </li>
+
+            <li class="breadcrumbs_item current">
+                <span id="currentpage">Contact</span>
+            </li>
+        </ul>
+    </div>
+    {%for contact1 in c1%}
+    <div class="container d-md-flex">
+       
+        <div class="page_main">
+          
+            <h5 class="page_main-subtitle">{{contact1.title}}</h5>
+            <div class="wrapper">
+                <span class="tw-height h2">
+                    <span class="text">{{contact1.des}}</span>
+                </span>
+                <h2 class="page_main-title type" data-text="{{contact1.des}}">{{contact1.des}}</h2>
+            </div>
+           
+        </div>
+   
+        <div class="page_media">
+            <img class="page_media-img" src="{{contact1.svg_file.url}}" alt="Contact Us" />
+        </div>
+    </div>
+    {%endfor%}
+</header>
+<!-- contact content start -->
+<main>
+    <div class="contact section">
+        <div class="container d-lg-flex align-items-stretch">
+            <div class="contact_map">
+                <div id="map"></div>
+            </div>
+            <ul class="contact_info d-flex flex-column flex-md-row flex-lg-column flex-wrap">
+                <li class="contact_info-item">
+                    <h5 class="contact_info-item_header" data-aos="fade-up">Office Locations:</h5>
+                    <div class="contact_info-item_content" data-aos="fade-up" data-aos-delay="50">
+                       {%for contact2 in c2%}
+                        <div class="wrapper">
+                            <span>{{contact2.street}}</span>
+                            <span>{{contact2.state}}</span>
+                        </div>
+                        {%endfor%}
+                    
+                    </div>
+                </li>
+                <li class="contact_info-item">
+                    <h5 class="contact_info-item_header" data-aos="fade-up">Phone Numbers:</h5>
+                    <div class="contact_info-item_content" data-aos="fade-up" data-aos-delay="50">
+                       
+                        <div class="wrapper">
+                            {%for contact3 in c3%}
+                            <a class="link" href="tel:+1234567890">{{contact3.phone}}</a>
+                            {%endfor%}
+                        </div>
+
+                      
+                    </div>
+                </li>
+                <li class="contact_info-item">
+                    <h5 class="contact_info-item_header" data-aos="fade-up">Send Us a Message:</h5>
+                    <div class="contact_info-item_content" data-aos="fade-up" data-aos-delay="50">
+                        <ul class="socials d-flex">
+                            {%for contact4 in c4%}
+                            <li class="socials-item">
+                                <a class="link" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                    <i class="{{contact4.icons}}"></i>
+                                </a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                        <a class="link link--underline" href="mailto:example@domain.com">sitechcompany@email.com</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="faq">
+        <div class="container">
+            <div class="accordion" id="faq_accordion">
+                <!-- item 1 -->
+                {%for group7 in g7%}
+                <div class="accordion_item">
+                    <div class="accordion_item-wrapper">
+                        <h4 class="title d-flex justify-content-between align-items-center collapsed"
+                            data-bs-toggle="collapse" data-bs-target="#item-1" aria-expanded="true">
+                            {{group7.title}}
+                            <span class="title_icon transform">
+                                <i class="icon-arrow-left icon arrow-rotate"></i>
+                            </span>
+                        </h4>
+                        <div id="item-1" class="accordion-collapse collapse show">
+                            <div class="body">
+                                <div class="main">
+                                    <p class="main_general">
+                                        {{group7.paragraph}}
+                                    </p>
+                                    <ul class="main_list">
+                                        <li class="main_list-item">
+                                            <span class="number countNum" data-prefix="0" data-value="1">01</span>
+                                            <div class="main">
+                                                <h6 class="main_title">{{group7.subheading1}}</h6>
+                                                <p class="main_text">
+                                                    {{group7.description1}}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="main_list-item">
+                                            <span class="number countNum" data-prefix="0" data-value="2">02</span>
+                                            <div class="main">
+                                                <h6 class="main_title">{{group7.subheading2}}
+                                                </h6>
+                                                <p class="main_text">
+                                                    {{group7.description2}}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="main_list-item">
+                                            <span class="number countNum" data-prefix="0" data-value="3">03</span>
+                                            <div class="main">
+                                                <h6 class="main_title">{{group7.subheading3}}</h6>
+                                                <p class="main_text">
+                                                    {{group7.description3}}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    <!-- feedback section start -->
+    {%include 'forms.html'%}
+    <!-- feedback section end -->
+    <div class="stripe d-flex align-items-center">
+        <div class="stripe_block d-none d-sm-flex align-items-center">
+            <span class="stripe_block-icon">
+                <i class="icon-arrow-left icon"></i>
+            </span>
+            <ul class="stripe_block-list d-flex flex-column">
+                {%for group100 in g100%}
+                <li>{{group100.total_number}} {{group100.name}} </li>
+                {%endfor%}
+            </ul>
+        </div>
+        <div class="ticker h3" id="ticker"></div>
+        <!--  ticker content changes here  -->
+        <div class="d-none">
+            {%for group101 in g101%}
+            <span class="ticker-item">{{group101.ticker_name}}</span>
+            {%endfor%}
+        </div>
+        <!--  ticker content changes here  -->
+    </div>
+</main>
+<!-- contact content end -->
+
+{%endblock%}

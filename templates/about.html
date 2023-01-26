@@ -1,0 +1,206 @@
+{%extends 'template.html'%}
+{%load static%}
+{%block title%}About {%endblock%}
+{%block mincss%}
+<link rel="stylesheet" href="{% static 'css/about.min.css' %}" />
+{%endblock%}
+
+{%block links%}about{%endblock%}
+{%block links2%}about{%endblock%}
+{%block content%}
+
+
+<header class="page">
+    <div class="page_shapes"></div>
+    <div class="container">
+        <ul class="breadcrumbs d-flex flex-wrap">
+            <li class="breadcrumbs_item">
+                <a class="link" href="{% url 'index'%}">Home</a>
+            </li>
+
+            <li class="breadcrumbs_item current">
+                <span id="currentpage">About</span>
+            </li>
+        </ul>
+        <div class="page_header">
+            {%for about1 in a1%}
+            <h2 class="page_header-title type" data-text="{{about1.name}}">{{about1.name}}</h2>
+            <span class="tw-height h2">
+                <span class="text">{{about1.name}}</span>
+            </span>
+            <h5 class="page_header-subtitle">{{about1.paragraph}}</h5>
+            {%endfor%}
+        </div>
+        <div class="page_slider-controls">
+            <a class="control swiper-button-prev" href="#">
+                <i class="icon-angle-left icon"></i>
+            </a>
+            <a class="control swiper-button-next" href="#">
+                <i class="icon-angle-right icon"></i>
+            </a>
+        </div>
+        <div class="page_slider swiper gallery">
+            <div class="swiper-wrapper">
+                {%for about2 in a2%}
+                <div class="swiper-slide">
+                    <a href="{{about2.images.url}}" data-role="gallery-link">
+                        <picture>
+                            <source data-srcset="{{about2.images.url}}" srcset="{{about2.images.url}}"
+                                type="image/webp" />
+                            <img class="lazy" data-src="{{about2.images.url}}" src="{{about2.images.url}}"
+                                alt="About Us" />
+                        </picture>
+                    </a>
+                </div>
+                {%endfor%}
+        
+            </div>
+        </div>
+    </div>
+</header>
+<!-- about page content start -->
+<main>
+    <!-- services section start -->
+    <div class="services">
+        <div class="container">
+            <div class="services_content d-lg-flex align-items-center">
+                <ul class="services_content-numbers d-flex flex-column">
+                    {%for about3 in a3%}
+                    <li class="block">
+
+                        <h6 class="label">{{about3.title}}</h6>
+                        <span class="countNum h1" data-value="{{about3.data_value}}"
+                            data-suffix="{{about3.data_suffix}}">0</span>
+
+                    </li>
+                    {%endfor%}
+
+                </ul>
+                <div class="services_content-video video">
+                    <span class="cover">
+                        <picture>
+                            <source data-srcset="{% static 'img/placeholder.jpg'%}"
+                                srcset="{% static 'img/placeholder.jpg'%}" type="image/webp" />
+                            <img class="lazy" data-src="{% static 'img/placeholder.jpg'%}"
+                                src="{% static 'img/placeholder.jpg'%}" alt="About our services" />
+                        </picture>
+                        <a class="video-btn btn--neon" href="#">
+                            <i class="icon-play icon"></i>
+                        </a>
+                    </span>
+                    {%for about4 in a4%}
+                    <iframe src="{{about4.youtube_link}}" title="{{about4.title}}" allowfullscreen></iframe>
+                    {%endfor%}
+                </div>
+            </div>
+            <ul class="services_list">
+                {%for group2 in g2%}
+
+                <li class="wrapper" data-aos="fade-up" data-aos-delay="{{group2.delay}}">
+                    <a class="services_list-item d-flex flex-column" href="service.html">
+                        <i class="icon-chart-bar icon"></i>
+                        <span class="title h5">{{group2.topic}}</span>
+                        <p class="text">
+                            {{group2.description}}
+                        </p>
+                    </a>
+                </li>
+                {%endfor%}
+                <!-- <li class="wrapper" data-aos="fade-up" data-aos-delay="50">
+                            <a class="services_list-item d-flex flex-column" href="service.html">
+                                <i class="icon-cloud icon"></i>
+                                <span class="title h5">Optimization</span>
+                                <p class="text">
+                                    Phasellus fringilla dignissim diam. Duis nec tempus ligula. Curabitur vel pretium. Vestibulum metus pur
+                                    esta
+                                </p>
+                            </a>
+                        </li>
+                        <li class="wrapper" data-aos="fade-up" data-aos-delay="100">
+                            <a class="services_list-item d-flex flex-column" href="service.html">
+                                <i class="icon-filesearch icon"></i>
+                                <span class="title h5">Content Track</span>
+                                <p class="text">
+                                    Phasellus fringilla tuc dignissim diam. Duis nec tempus ligula. Curabitur vel pretium. Vestibulum metus
+                                    pur esta
+                                </p>
+                            </a>
+                        </li>
+                        <li class="wrapper" data-aos="fade-up" data-aos-delay="150">
+                            <a class="services_list-item d-flex flex-column" href="service.html">
+                                <i class="icon-protect icon"></i>
+                                <span class="title h5">Risk Manage</span>
+                                <p class="text">
+                                    Phasellus fringilla dignissim diam. Duis nec tempus ligula. Curabitur vel pretium. Vestibulum metus pur
+                                    esta
+                                </p>
+                            </a>
+                        </li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- services section end -->
+    <!-- feedback section start -->
+    {%include 'forms.html'%}
+    <!-- feedback section end -->
+    <!--  recent post section start  -->
+    <section class="recent section">
+        <div class="container">
+            <div class="recent_header d-flex justify-content-between align-items-start">
+                <span class="tw-height h4">
+                    <span class="text">Recent Posts</span>
+                </span>
+                <h4 class="recent_header-title type" data-text="Recent Posts">Recent Posts</h4>
+                <div class="recent_controls">
+                    <a class="recent_controls-control swiper-button-prev" href="#">
+                        <i class="icon-angle-left icon"></i>
+                    </a>
+                    <a class="recent_controls-control swiper-button-next" href="#">
+                        <i class="icon-angle-right icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="recent_posts swiper">
+                <div class="swiper-wrapper">
+                    {%for about6 in a6%}
+                    <div class="recent_posts-item post-item swiper-slide">
+                        <div class="main">
+                            <a class="main_title h5" href="post.html">
+                                {{about6.title}} </a>
+                            <div class="main_meta d-flex flex-wrap align-items-center">
+                                <span class="main_meta-bookmark">
+                                    <i class="icon-bookmark icon"></i>
+                                </span>
+
+                                <p class="main_meta-item">{{about6.dates}}</p>
+                                <p class="main_meta-item">by {{about6.editor}}</p>
+                                <p class="main_meta-item">{{about6.Comments_count}} Comments</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <picture>
+                                <source data-srcset="{{about6.images.url}}"
+                                    srcset="{{about6.images.url}}" type="image/webp" />
+                                <img class="lazy" data-src="{{about6.images.url}}"
+                                    src="{{about6.images.url}}"
+                                    alt="Amazing VR App Turns Any Room Into A Mixed Reality Stargazing Lounge" />
+                            </picture>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+            
+                  
+                   
+                    
+                    
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  recent post section end  -->
+</main>
+<!-- about page content end -->
+{%endblock content%}

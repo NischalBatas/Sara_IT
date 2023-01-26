@@ -1,0 +1,121 @@
+{%extends 'template.html'%}
+{%load static%}
+{%block title%}Services {%endblock%}
+{%block mincss%}
+<link rel="stylesheet" href="{% static 'css/services.min.css' %}" />
+{%endblock%}
+
+{%block links%}services{%endblock%}
+{%block links2%}services{%endblock%}
+{%block content%}
+        <header class="page">
+            <div class="page_shapes">
+                <div class="page_shapes-group page_shapes-group--left">
+                    <img class="main-shape" src="{% static 'svg/shapes_bg.svg'%}" alt="Services" />
+                    <img class="secondary-shape" src="{% static 'svg/circles_white.svg'%}" alt="Services" />
+                </div>
+                <div class="page_shapes-group page_shapes-group--right">
+                    <img class="main-shape" src="{% static 'svg/shapes_bg3.svg'%}" alt="Services" />
+                    <img class="secondary-shape" src="{% static 'svg/ovals-line_group.svg'%}" alt="Services" />
+                </div>
+            </div>
+            <div class="container">
+                <ul class="breadcrumbs d-flex flex-wrap">
+                    <li class="breadcrumbs_item">
+                        <a class="link" href="{%url 'index'%}">Home</a>
+                    </li>
+
+                    <li class="breadcrumbs_item current">
+                        <span id="currentpage">Services</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="container d-md-flex">
+                <div class="page_header">
+                    <div class="wrapper">
+                        <span class="tw-height h2">
+                            <span class="text">Services</span>
+                        </span>
+                        <h2 class="page_header-title type" data-text="Services">Services</h2>
+                    </div>
+                    <h5 class="page_header-subtitle">Get investing today with easy-access investment tools</h5>
+                </div>
+                <div class="page_media">
+                    <img class="page_media-main" src="{% static 'svg/services.svg'%}" alt="Services" />
+                    <img class="page_media-shape" src="{% static 'svg/ovalgreen.svg'%}" alt="Services" />
+                </div>
+            </div>
+        </header>
+        <!-- services content start -->
+        <main class="services">
+            <div class="container">
+                <ul class="services_list d-flex flex-column">
+                    {%for service2 in s2%}
+                    <li class="services_list-item">
+                        <div class="media">
+                            <picture>
+                                <source data-srcset="{{service2.image.url}}" srcset="{{service2.image.url}}" type="image/webp" />
+                                <img
+                                    class="lazy"
+                                    data-src="{{service2.image.url}}"
+                                    src="{{service2.image.url}}"
+                                    alt="Data Analysis"
+                                />
+                            </picture>
+                            <span class="media_icon">
+                                <i class="{{service2.icons}}"></i>
+                            </span>
+                        </div>
+                        <div class="main">
+                            <h4 class="main_title">{{service2.title}}</h4>
+                            <p class="main_text">{{service2.paragraph}}</p>
+                            <ul class="main_list">
+                                <li class="main_list-item">
+                                    <i class="icon-circle icon"></i>
+                                    {{service2.type1}}
+                                </li>
+                                <li class="main_list-item">
+                                    <i class="icon-circle icon"></i>
+                                    {{service2.type2}}
+                                </li>
+                                <li class="main_list-item">
+                                    <i class="icon-circle icon"></i>
+                                    {{service2.type3}}
+                                </li>
+                                <li class="main_list-item">
+                                    <i class="icon-circle icon"></i>
+                                    {{service2.type4}}
+                                </li>
+                            </ul>
+                            <a class="main_btn btn btn--neon" href="service.html">Read More About</a>
+                        </div>
+                    </li>
+                    {%endfor%}
+                    
+                    
+                   
+                </ul>
+            </div>
+            <div class="stripe d-flex align-items-center">
+                <div class="stripe_block d-none d-sm-flex align-items-center">
+                    <span class="stripe_block-icon">
+                        <i class="icon-arrow-left icon"></i>
+                    </span>
+                    <ul class="stripe_block-list d-flex flex-column">
+                        {%for group100 in g100%}
+                        <li>{{group100.total_number}} {{group100.name}} </li>
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="ticker h3" id="ticker"></div>
+                <!--  ticker content changes here  -->
+                <div class="d-none">
+                       {%for group101 in g101%}
+                    <span class="ticker-item">{{group101.ticker_name}}</span>
+                   {%endfor%}
+                </div>
+                <!--  ticker content changes here  -->
+            </div>
+        </main>
+        <!-- services content end -->
+      {%endblock%}
