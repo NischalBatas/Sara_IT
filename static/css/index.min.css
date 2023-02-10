@@ -2193,10 +2193,15 @@ input[type="search"]::-webkit-search-results-decoration {
   right: 10px;
   bottom: -30px;
 }
-.testimonials_slider-slide.swiper-slide-active .avocado,
-.testimonials_slider-slide.swiper-slide-active .doge {
+.testimonials_slider-slide.swiper-slide-active .avocado {
   opacity: 1;
 }
+
+.testimonials_slider-slide.swiper-slide-active .doge {
+  opacity: 1;
+  border-radius: 4rem;
+}
+
 .testimonials_slider-slide .main_review {
   color: #1b2129;
 }

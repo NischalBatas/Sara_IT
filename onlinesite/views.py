@@ -7,8 +7,18 @@ from django.contrib import messages
 from .forms import *
 # Create your views here.
 
+def template(request):
+    logos=logo.objects.all()[:1]
+
+    context = {
+        'logos':logos,
+       
+    }
+    return render(request,'template.html',context)
+
 
 def index(request):
+    logos=logo.objects.all()[:1]
     groups1 = group1.objects.all()[:1]
     groups2 = group2.objects.all()
     groups3 = group3.objects.all()[:1]
@@ -57,6 +67,7 @@ def index(request):
            
     form = MyForm()
     context = {
+        'logos':logos,
         'g1': groups1,
         'g2': groups2,
         'g3': groups3,
@@ -77,6 +88,7 @@ def index(request):
 
 
 def cap(request):
+    logos=logo.objects.all()[:1]
     if request.method == 'POST':
         form = MyForm(request.POST)
         if form.is_valid():
@@ -90,6 +102,7 @@ def cap(request):
 
 
 def about(request):
+    logos=logo.objects.all()[:1]
     abouts1 = about1.objects.all()[:1]
     abouts2 = about2.objects.all()
     abouts3 = about3.objects.all()
@@ -129,6 +142,7 @@ def about(request):
             
     form = MyForm()
     context = {
+        'logos':logos,
         'a1': abouts1,
         'a2': abouts2,
         'a3': abouts3,
@@ -142,10 +156,12 @@ def about(request):
 
 
 def services(request):
+    logos=logo.objects.all()[:1]
     services2 = service2.objects.all()
     group100 = groups100.objects.all()
     group101 = groups101.objects.all()
     context = {
+        'logos':logos,
         's2': services2,
         'g100': group100,
         'g101': group101,
@@ -154,6 +170,7 @@ def services(request):
 
 
 def contact(request):
+    logos=logo.objects.all()[:1]
     group100 = groups100.objects.all()
     group101 = groups101.objects.all()
     groups7 = group7.objects.all()
@@ -195,6 +212,7 @@ def contact(request):
             
     form = MyForm()
     context = {
+        'logos':logos,
 
         'g100': group100,
         'g101': group101,
@@ -210,6 +228,7 @@ def contact(request):
 
 
 def prices(request):
+    logos=logo.objects.all()[:1]
     price1 = prices1.objects.all()
     price2 = prices2.objects.all()
     price3 = prices3.objects.all()
@@ -220,6 +239,7 @@ def prices(request):
     group101 = groups101.objects.all()
     groups2 = group2.objects.all()
     context = {
+        'logos':logos,
         'p1': price1,
         'p2': price2,
         'p3': price3,

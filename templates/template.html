@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{%block title%}{%endblock%}| Sitech</title>
+    <title>{%block title%}{%endblock%}| SaraIT</title>
     <script id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
         async=""></script>
     <script src="https://www.youtube.com/player_api"></script>
@@ -37,9 +37,13 @@
     <header class="header d-lg-flex align-items-center" data-page="{%block links%}{%endblock%}" data-page-parent="{%block links2%}{%endblock%}">
         <div class="container d-flex align-items-center flex-wrap flex-lg-nowrap">
             <a class="logo header_logo d-inline-flex align-items-center" href="/">
+                {%for logo in logos%}
                 <span class="logo_icon">
-                    <img src="{% static 'img/logos.png'%}" alt="Sitech" />
+                    
+                    <img src="{{logo.logo_img.url}}" alt="SaraIT" />
+                   
                 </span>
+                {%endfor%}
                 <span class="logo_text h5"></span>
             </a>
             <nav class="header_nav collapse" id="headerMenu">
