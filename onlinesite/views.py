@@ -231,3 +231,10 @@ def prices(request):
         'g2': groups2,
     }
     return render(request, 'prices.html', context)
+
+
+
+
+
+def page_not_found(request, exception):
+    return render(request, '404.html', status=404)
