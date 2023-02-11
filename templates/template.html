@@ -11,44 +11,45 @@
     <script id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
         async=""></script>
     <script src="https://www.youtube.com/player_api"></script>
+    <link rel="icon" type="image/x-icon" href="{%static 'img/icon.png'%}">
     <link rel="stylesheet preload" as="style" href="{% static 'css/preload.min.css' %}" />
     <link rel="stylesheet preload" as="style" href="{% static 'css/icomoon.css' %}" />
     <link rel="stylesheet preload" as="style" href="{% static 'css/libs.min.css' %}" />
     <style>
-        .captcha{
+        .captcha {
             max-width: 250px;
             background-color: rgb(29, 201, 121);
             border: 1px solid black;
         }
-        .newcap input{
+
+        .newcap input {
             width: 100%;
             padding: 0.8rem;
             margin: 1rem 0 1rem 0;
             border: 1px solid black;
         }
-
-        
-        </style>
+    </style>
     {%block mincss%}{%endblock%}
 </head>
 
 <body>
 
-    <header class="header d-lg-flex align-items-center" data-page="{%block links%}{%endblock%}" data-page-parent="{%block links2%}{%endblock%}">
+    <header class="header d-lg-flex align-items-center" data-page="{%block links%}{%endblock%}"
+        data-page-parent="{%block links2%}{%endblock%}">
         <div class="container d-flex align-items-center flex-wrap flex-lg-nowrap">
             <a class="logo header_logo d-inline-flex align-items-center" href="/">
                 {%for logo in logos%}
                 <span class="logo_icon">
-                    
+
                     <img src="{{logo.logo_img.url}}" alt="SaraIT" />
-                   
+
                 </span>
                 {%endfor%}
                 <span class="logo_text h5"></span>
             </a>
             <nav class="header_nav collapse" id="headerMenu">
                 <ul class="header_nav-list">
-                    <li class="header_nav-list_item dropdown">
+                    <!-- <li class="header_nav-list_item dropdown">
                         <a class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
                             href="{% url 'index'%}" data-bs-toggle="collapse" data-bs-target="#homeMenu"
                             data-trigger="dropdown" data-main-link="true" aria-expanded="true" aria-controls="homeMenu"
@@ -59,8 +60,9 @@
                             </span>
                             <i class="icon-arrow-left icon arrow-rotate"></i>
                         </a>
-                        <div class="dropdown-menu collapse show" id="homeMenu">
-                            <!-- <ul class="dropdown-list">
+                    </li> -->
+
+                    <!-- <ul class="dropdown-list">
                                 <li class="list-item" data-main="true">
                                     <a class="dropdown-item nav-item" data-page="home" data-page-parent="home"
                                         href="index.html" data-main="true">
@@ -74,14 +76,23 @@
                                     </a>
                                 </li>
                             </ul> -->
-                        </div>
+
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="{% url 'index'%}" data-page="home" data-single="true">
+                            <span class="nav-item_text">Home</span>
+                        </a>
                     </li>
                     <li class="header_nav-list_item">
                         <a class="nav-item nav-link" href="{% url 'about'%}" data-page="about" data-single="true">
                             <span class="nav-item_text">About</span>
                         </a>
                     </li>
-                    <li class="header_nav-list_item dropdown">
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="{% url 'services'%}" data-page="services" data-single="true">
+                            <span class="nav-item_text">Services</span>
+                        </a>
+                    </li>
+                    <!-- <li class="header_nav-list_item dropdown">
                         <a
                             class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
                             href="{% url 'services'%}"
@@ -101,7 +112,7 @@
                             <i class="icon-arrow-left icon arrow-rotate"></i>
                         </a>
                         <div class="dropdown-menu collapse" id="servicesMenu">
-                            <!-- <ul class="dropdown-list">
+                             <ul class="dropdown-list">
                                 <li class="list-item" data-main="true">
                                     <a
                                         class="dropdown-item nav-item"
@@ -123,17 +134,17 @@
                                         Single service
                                     </a>
                                 </li>
-                            </ul> -->
+                            </ul> 
                         </div>
-                    </li>
-                  
+                    </li> -->
+
                     <li class="header_nav-list_item">
                         <a class="nav-item nav-link" href="{% url 'prices'%}" data-page="prices" data-single="true">
                             <span class="nav-item_text">Prices</span>
                         </a>
                     </li>
                     <!-- <li class="header_nav-list_item"> -->
-                        <!-- <a class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
+                    <!-- <a class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
                             href="#" data-bs-toggle="collapse" data-bs-target="#pagesMenu" data-trigger="dropdown"
                             data-page-parent="pages" data-main-link="true" aria-expanded="false"
                             aria-controls="pagesMenu">
@@ -201,8 +212,8 @@
 
     {%endblock content%}
 
-       <!-- homepage content end -->
-       <footer class="footer">
+    <!-- homepage content end -->
+    <footer class="footer">
         <div class="container">
             <div class="footer_top">
                 <a class="logo footer_top-logo d-inline-flex align-items-center" href="{%url 'index'%}">
@@ -302,20 +313,20 @@
     <!-- <script src="{% static 'js/map.min.js'%}"></script> -->
     <script>
         function initMap() {
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8,
-            center: {lat:  28.226232, lng:  83.988400}
-          });
-          var marker = new google.maps.Marker({
-            position: {lat:  28.226232, lng:  83.988400},
-            map: map
-          });
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: { lat: 28.226232, lng: 83.988400 }
+            });
+            var marker = new google.maps.Marker({
+                position: { lat: 28.226232, lng: 83.988400 },
+                map: map
+            });
         }
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtjyfkHYXbXzQ-ElYj1asLAyhVoCkpwnY&callback=initMap">
-      </script>
-    
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtjyfkHYXbXzQ-ElYj1asLAyhVoCkpwnY&callback=initMap">
+        </script>
+
 </body>
 
 </html>
