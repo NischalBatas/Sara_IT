@@ -20,7 +20,7 @@ export function preventDefault() {
     });
 
     document.addEventListener('submit', e => {
-        if (e.target.tagName === 'FORM') {
+        if (e.target.tagName === 'FORMS') {
             e.preventDefault();
         }
     })

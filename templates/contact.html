@@ -8,6 +8,7 @@
 {%block links%}contact{%endblock%}
 {%block links2%}contact{%endblock%}
 {%block content%}
+
 <header class="page">
     <div class="page_shapes">
         <img class="shape shape--left" src="{% static 'svg/ovalblue.svg'%}" alt="Contact Us" />
@@ -82,15 +83,15 @@
                     <h5 class="contact_info-item_header" data-aos="fade-up">Send Us a Message:</h5>
                     <div class="contact_info-item_content" data-aos="fade-up" data-aos-delay="50">
                         <ul class="socials d-flex">
-                            {%for contact4 in c4%}
+                            {%for footermedia in f_medias%}
                             <li class="socials-item">
-                                <a class="link" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                    <i class="{{contact4.icons}}"></i>
+                                <a class="link" href="{{footermedia.icon_links}}" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-{{footermedia.icon_name}} icon"></i>
                                 </a>
-                            </li>
-                            {%endfor%}
+                                {%endfor%}
+                            
                         </ul>
-                        <a class="link link--underline" href="mailto:example@domain.com">hello@sarait.net</a>
+                        <a class="link link--underline" href="mailto:example@domain.com">info@sarait.net</a>
                     </div>
                 </li>
             </ul>

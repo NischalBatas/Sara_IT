@@ -7,15 +7,29 @@ from django.contrib import messages
 from .forms import *
 # Create your views here.
 
-def template(request):
-    logos=logo.objects.all()[:1]
 
-    context = {
-        'logos':logos,
-       
-    }
-    return render(request,'template.html',context)
+def templatess(request):
+    f_media=footerMedia.objects.all()
+    # if request.method=='POST':
+    #     name=request.POST['feedbackName']
+    #     email=request.POST['feddbackEmail']
+    #     message=request.POST['feedbackMessage']
+    #     forms=feedbackForm(f_name=name,f_email=email,f_message=message)
+    #     forms.save()
+    return {'f_media':f_media}
 
+def demos(request):
+    if request.method=='POST':
+        d_name=request.POST['d_name']
+        d_email=request.POST['d_email']
+        d_number=request.POST['d_number']
+        d_subject=request.POST['d_subject']
+        demoform=demo(demo_name=d_name,demo_email=d_email,demo_pnumber=d_number,demo_subject=d_subject)
+        demoform.save()
+        messages.success(request,'We will reach you soon')
+        print('success')
+        return redirect('demos')
+    return render(request,'demos.html')
 
 def index(request):
     logos=logo.objects.all()[:1]
@@ -31,37 +45,23 @@ def index(request):
     groups9 = group9.objects.all()
     group100 = groups100.objects.all()
     group101 = groups101.objects.all()
-
+    f_media=footerMedia.objects.all()
+        
     if request.method == 'POST':
         form = MyForm(request.POST)
         if form.is_valid():
                 print('The Captcha is Correct')
-                
-                feedbackName = request.POST['feedbackName']
-                feedbackEmail = request.POST['feedbackEmail']
-                feedbackMessage = request.POST['feedbackMessage']
-
-                data = {
-                    'feedbackName': feedbackName,
-                    'feedbackEmail': feedbackEmail,
-                    'feedbackMessage': feedbackMessage
-                }
-                message = '''
-                        New message:{}
-                        from:{}
-                    '''.format(data['feedbackMessage'], data['feedbackEmail'])
-
-                send_mail(
-                    data['feedbackMessage'],
-                    message,
-                    '',
-                    ['nischal.batash@gmail.com'],
-
-                    fail_silently=False,
-                )
+                name=request.POST['feedbackName']
+                email=request.POST['feedbackEmail']
+                message=request.POST['feedbackMessage']
+                forms=feedbackForm(f_name=name,f_email=email,f_messages=message)
+                forms.save()
+               
+                messages.success(request,'We will reach you soon')
                 return redirect('/')
             # Do something else with the form data
         else:
+            messages.warning(request,'The Captcha is not correct')
             print("The Captcha is Invalid")
             
            
@@ -81,7 +81,8 @@ def index(request):
         'g100': group100,
         'g101': group101,
         "messagen": "Message Sent",
-        "form":form
+        "form":form,
+        'f_media':f_media
 
     }
     return render(request, 'index.html', context)
@@ -95,8 +96,6 @@ def cap(request):
             print('The Captcha is Correct')
         else:
             print("The Captcha is Invalid")
-            
-
     form = MyForm()
     return render(request, 'forms.html', {'form': form})
 
@@ -113,33 +112,19 @@ def about(request):
         form = MyForm(request.POST)
         if form.is_valid():
                 print('The Captcha is Correct')
-                feedbackName = request.POST['feedbackName']
-                feedbackEmail = request.POST['feedbackEmail']
-                feedbackMessage = request.POST['feedbackMessage']
-
-                data = {
-                    'feedbackName': feedbackName,
-                    'feedbackEmail': feedbackEmail,
-                    'feedbackMessage': feedbackMessage
-                }
-                message = '''
-                        New message:{}
-                        from:{}
-                    '''.format(data['feedbackMessage'], data['feedbackEmail'])
-
-                send_mail(
-                    data['feedbackMessage'],
-                    message,
-                    '',
-                    ['nischal.batash@gmail.com'],
-
-                    fail_silently=False,
-                )
+                name=request.POST['feedbackName']
+                email=request.POST['feedbackEmail']
+                message=request.POST['feedbackMessage']
+                forms=feedbackForm(f_name=name,f_email=email,f_messages=message)
+                forms.save()
+               
+                messages.success(request,'We will reach you soon')
                 return redirect('/')
             # Do something else with the form data
         else:
+            messages.warning(request,'The Captcha is not correct')
             print("The Captcha is Invalid")
-            
+                    
     form = MyForm()
     context = {
         'logos':logos,
@@ -178,38 +163,25 @@ def contact(request):
     contacts2 = contact2.objects.all()
     contacts3 = contact3.objects.all()
     contacts4 = contact4.objects.all()
+    f_media=footerMedia.objects.all()
+    f_medias=footerMedia.objects.all()[:5]
     if request.method == 'POST':
         form = MyForm(request.POST)
         if form.is_valid():
                 print('The Captcha is Correct')
+                name=request.POST['feedbackName']
+                email=request.POST['feedbackEmail']
+                message=request.POST['feedbackMessage']
+                forms=feedbackForm(f_name=name,f_email=email,f_messages=message)
+                forms.save()
                
-                feedbackName = request.POST['feedbackName']
-                feedbackEmail = request.POST['feedbackEmail']
-                feedbackMessage = request.POST['feedbackMessage']
-
-                data = {
-                    'feedbackName': feedbackName,
-                    'feedbackEmail': feedbackEmail,
-                    'feedbackMessage': feedbackMessage
-                }
-                message = '''
-                        New message:{}
-                        from:{}
-                    '''.format(data['feedbackMessage'], data['feedbackEmail'])
-
-                send_mail(
-                    data['feedbackMessage'],
-                    message,
-                    '',
-                    ['nischal.batash@gmail.com'],
-
-                    fail_silently=False,
-                )
+                messages.success(request,'We will reach you soon')
                 return redirect('/')
             # Do something else with the form data
         else:
+            messages.warning(request,'The Captcha is not correct')
             print("The Captcha is Invalid")
-            
+                  
     form = MyForm()
     context = {
         'logos':logos,
@@ -221,7 +193,9 @@ def contact(request):
         'c2': contacts2,
         'c3': contacts3,
         'c4': contacts4,
-        'form':form
+        'form':form,
+        'f_media':f_media,
+        'f_medias':f_medias
 
     }
     return render(request, 'contact.html', context)

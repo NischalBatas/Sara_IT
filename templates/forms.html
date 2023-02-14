@@ -1,6 +1,8 @@
 {%load static%}
 
+
 <section class="feedback section">
+  
     <div class="feedback_shapes">
         <div class="shape shape--left">
             <img src="{% static 'svg/bgshape_white2.svg'%}" alt="shape" />
@@ -18,23 +20,23 @@
                     </span>
                     <h4 class="feedback_main-header_title type" data-text="Ask us any">Ask us any</h4>
                 </div>
+                
                 <p class="feedback_main-header_text">
                     Suspendisse ligula magna, laoreet non egestas ac, lobortis at nulla. Suspendisse efficitur
                     neque nec neque
                     porttitor tincidunt. Donec iaculis lacus vitae velit finibus ullamcorper
                 </p>
             </div>
-            <form class="feedback_main-form form d-flex flex-column" action="" method="post"
-                data-type="feedback">
-            
+        
+            <form class="feedback_main-form form d-flex flex-column" action="" method="post" data-type="feedback">
+
                 {%csrf_token%}
-                <input class="field required" type="text" id="feedbackName" name="feedbackName"
-                    placeholder="Name" />
-                <input class="field required" type="text"  id="feedbackEmail"
-                    name="feedbackEmail" placeholder="E-mail" />
-                <textarea class="field required" name="feedbackMessage" id="feedbackMessage"
+                <input class="field required" required  type="text" id="feedbackName" name="feedbackName" placeholder="Name" />
+                <input class="field required" required type="text" id="feedbackEmail" name="feedbackEmail"
+                    placeholder="E-mail" />
+                <textarea class="field required" required name="feedbackMessage" id="feedbackMessage"
                     placeholder="Type your message here…"></textarea>
-                    <div class="newcap " id="feedbackName">{{ form.captcha }}</div>
+                <div class="newcap " id="feedbackName">{{ form.captcha }}</div>
                 <button class="btn btn--neon" type="submit">Send</button>
             </form>
         </div>
@@ -45,5 +47,11 @@
                 </lottie-player>
             </div>
         </div>
+       
     </div>
+    
 </section>
+
+
+
+

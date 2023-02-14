@@ -3,6 +3,8 @@ from .models import *
 # Register your models here.
 
 admin.site.register(logo)
+admin.site.register(demo)
+admin.site.register(feedbackForm)
 @admin.register(group1)
 class group1Admin(admin.ModelAdmin):
     list_display=('title','paragraph')
@@ -35,3 +37,4 @@ admin.site.register(prices3)
 admin.site.register(prices4)
 admin.site.register(prices5)
 admin.site.register(prices6)
+admin.site.register(footerMedia)

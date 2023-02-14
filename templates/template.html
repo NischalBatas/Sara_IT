@@ -15,6 +15,9 @@
     <link rel="stylesheet preload" as="style" href="{% static 'css/preload.min.css' %}" />
     <link rel="stylesheet preload" as="style" href="{% static 'css/icomoon.css' %}" />
     <link rel="stylesheet preload" as="style" href="{% static 'css/libs.min.css' %}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .captcha {
             max-width: 250px;
@@ -28,6 +31,7 @@
             margin: 1rem 0 1rem 0;
             border: 1px solid black;
         }
+      
     </style>
     {%block mincss%}{%endblock%}
 </head>
@@ -40,9 +44,7 @@
             <a class="logo header_logo d-inline-flex align-items-center" href="/">
                 {%for logo in logos%}
                 <span class="logo_icon">
-
                     <img src="{{logo.logo_img.url}}" alt="SaraIT" />
-
                 </span>
                 {%endfor%}
                 <span class="logo_text h5"></span>
@@ -82,144 +84,67 @@
                             <span class="nav-item_text">Home</span>
                         </a>
                     </li>
+                   
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="{% url 'services'%}" data-page="services" data-single="true">
+                            <span class="nav-item_text">Services</span>
+                        </a>
+                    </li>
                     <li class="header_nav-list_item">
                         <a class="nav-item nav-link" href="{% url 'about'%}" data-page="about" data-single="true">
                             <span class="nav-item_text">About</span>
                         </a>
                     </li>
                     <li class="header_nav-list_item">
-                        <a class="nav-item nav-link" href="{% url 'services'%}" data-page="services" data-single="true">
-                            <span class="nav-item_text">Services</span>
-                        </a>
-                    </li>
-                    <!-- <li class="header_nav-list_item dropdown">
-                        <a
-                            class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
-                            href="{% url 'services'%}"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#servicesMenu"
-                            data-trigger="dropdown"
-                            data-page-parent="services"
-                            data-main-link="true"
-                            aria-expanded="false"
-                            aria-controls="servicesMenu"
-                            data-page="services"
-                        >
-                            <span class="nav-item_text">
-                                Services
-                                <i class="icon-circle icon"></i>
-                            </span>
-                            <i class="icon-arrow-left icon arrow-rotate"></i>
-                        </a>
-                        <div class="dropdown-menu collapse" id="servicesMenu">
-                             <ul class="dropdown-list">
-                                <li class="list-item" data-main="true">
-                                    <a
-                                        class="dropdown-item nav-item"
-                                        data-page="services"
-                                        data-page-parent="services"
-                                        href="{% url 'services'%}"
-                                        data-main="true"
-                                    >
-                                        All Services
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a
-                                        class="dropdown-item nav-item"
-                                        data-page="service"
-                                        data-page-parent="services"
-                                        href="service.html"
-                                    >
-                                        Single service
-                                    </a>
-                                </li>
-                            </ul> 
-                        </div>
-                    </li> -->
-
-                    <li class="header_nav-list_item">
-                        <a class="nav-item nav-link" href="{% url 'prices'%}" data-page="prices" data-single="true">
-                            <span class="nav-item_text">Prices</span>
-                        </a>
-                    </li>
-                    <!-- <li class="header_nav-list_item"> -->
-                    <!-- <a class="nav-link nav-item dropdown-toggle d-flex align-items-center justify-content-between"
-                            href="#" data-bs-toggle="collapse" data-bs-target="#pagesMenu" data-trigger="dropdown"
-                            data-page-parent="pages" data-main-link="true" aria-expanded="false"
-                            aria-controls="pagesMenu">
-                            <span class="nav-item_text">
-                                Pages
-                                <i class="icon-circle icon"></i>
-                            </span>
-                            <i class="icon-arrow-left icon arrow-rotate"></i>
-                        </a>
-                        <div class="dropdown-menu collapse" id="pagesMenu">
-                            <ul class="dropdown-list">
-                                <li class="list-item">
-                                    <a class="dropdown-item nav-item" data-page="blog" data-page-parent="pages"
-                                        href="blog.html">
-                                        Blog Boxes
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a class="dropdown-item nav-item" data-page="blog2" data-page-parent="pages"
-                                        href="blog2.html">
-                                        Blog Sidebar
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a class="dropdown-item nav-item" data-page="post" data-page-parent="pages"
-                                        href="post.html">
-                                        Single post
-                                    </a>
-                                </li>
-                                <li class="list-item">
-                                    <a class="dropdown-item nav-item" data-page="faq" data-page-parent="pages"
-                                        href="faq.html"> FAQ </a>
-                                </li>
-                                <li class="list-item">
-                                    <a class="dropdown-item nav-item" data-page="404" data-page-parent="pages"
-                                        href="404.html">
-                                        Error Page
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> -->
-                    <!-- </li> -->
-                    <li class="header_nav-list_item">
                         <a class="nav-item nav-link" href="{% url 'contact'%}" data-page="contact" data-single="true">
                             <span class="nav-item_text">Contact</span>
                         </a>
                     </li>
+
+
                     <li class="header_nav-list_btn">
-                        <a class="btn signUpTrigger " href="#">Get a demo</a>
+                        <a class="btn pressbtn " href="{% url 'demos'%}">Talk To Us</a>
                     </li>
                 </ul>
             </nav>
-            <a class="header_btn btn btn--neon signUpTrigger" href="#">Get a demo</a>
+
+
+            <a class="header_btn btn btn--neon" href="{% url 'demos'%}"><button class="header_btn btn ">  Talk To Us</button></a>
+
             <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
                 aria-controls="headerMenu" aria-expanded="false" type="button">
                 <i class="icon-arrow-left icon arrow-rotate"></i>
+
             </button>
+
+
+            <!-- <a class="header_btn btn btn--neon signUpTrigger" href="#">Get a demo</a>
+            <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
+                aria-controls="headerMenu" aria-expanded="false" type="button">
+                <i class="icon-arrow-left icon arrow-rotate"></i>
+            </button> -->
         </div>
     </header>
     <!-- homepage content start -->
 
 
     <!-- Body -->
+    
+    {%include 'messagesform.html'%}
     {%block content%}
 
     {%endblock content%}
-
+  
     <!-- homepage content end -->
     <footer class="footer">
         <div class="container">
             <div class="footer_top">
                 <a class="logo footer_top-logo d-inline-flex align-items-center" href="{%url 'index'%}">
-                    <span class="logo_icon">
-                        <img src="{% static 'img/logos.png'%}" alt="SaraIT" />
-                    </span>
+                    {%for logo in logos%}
+                <span class="logo_icon">
+                    <img src="{{logo.logo_img.url}}" alt="SaraIT" />
+                </span>
+                {%endfor%}
                     <span class="logo_text h2"></span>
                 </a>
                 <ul class="footer_top-nav d-flex flex-wrap">
@@ -245,12 +170,19 @@
             </div>
             <div class="footer_bottom">
                 <div class="footer_bottom-contacts d-flex flex-column">
-                    <a class="link" href="mailto:example@domain.com">hello@sarait.net</a>
+                    <a class="link" href="mailto:example@domain.com">info@sarait.net</a>
                     <a class="link" href="tel:+1234567890">+1 (314) 243-4654</a>
                 </div>
                 <div class="footer_bottom-socials">
                     <ul class="footer_bottom-socials_list socials d-flex flex-wrap">
+                        {%for footermedia in f_media%}
                         <li class="socials-item">
+                            <a class="link" href="{{footermedia.icon_links}}" target="_blank" rel="noopener noreferrer">
+                                <i class="icon-{{footermedia.icon_name}} icon"></i>
+                            </a>
+                            {%endfor%}
+                        </li>
+                        <!-- <li class="socials-item">
                             <a class="link" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                 <i class="icon-facebook icon"></i>
                             </a>
@@ -294,7 +226,7 @@
                             <a class="link" href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
                                 <i class="icon-tiktok icon"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -304,21 +236,23 @@
             <i class="icon-arrow-up icon"></i>
         </a>
     </footer>
+
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="{% static 'js/common.min.js'%}"></script>
     <script src="{% static 'js/ticker.min.js'%}"></script>
     <script src="{% static 'js/index.min.js'%}"></script>
     <script src="{% static 'js/testimonials.min.js'%}"></script>
     <script src="{% static 'js/about.min.js'%}"></script>
+   
     <!-- <script src="{% static 'js/map.min.js'%}"></script> -->
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
-                center: { lat: 28.226232, lng: 83.988400 }
+                center: { lat: 37.97018817083075, lng: -122.035449857673 }
             });
             var marker = new google.maps.Marker({
-                position: { lat: 28.226232, lng: 83.988400 },
+                position: { lat: 37.97018817083075, lng: -122.035449857673 },
                 map: map
             });
         }
@@ -330,3 +264,4 @@
 </body>
 
 </html>
+

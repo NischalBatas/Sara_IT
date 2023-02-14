@@ -1,0 +1,252 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0 !important; 
+}
+
+.demoform{
+
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 60px 25%;
+    font-family: "Open Sans", sans-serif;
+    /* justify-content: center; */
+    /* align-content: center; */
+    
+  
+   
+}
+
+
+.demoform_group1{
+    display: flex;
+ 
+    justify-content: flex-end;
+
+
+    
+}
+
+.demoform_group1 button {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    background: #f8f8ff;
+    border: 1px solid #000;
+    padding: 0.2rem;
+    cursor: pointer;
+    
+}
+
+.demoform_group2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    box-shadow: 3px 3px #4bff2a;
+    padding: 60px 60px;
+    background: #f8f8ff;
+    margin-top: 5px;
+}
+
+.demoform_group2_part1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-weight: 550;
+
+}
+
+.demoform_group2_part2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.demoform_group2_part2 div{
+    width: 20px;
+    background-color: #4bff2a;
+    height: 12px;
+    margin-right: 10px;
+    
+}
+
+.demoform_group2_part3{
+    display: flex;
+   
+   
+}
+
+.demoform_group2_part3 p{
+    padding: 0  0 0 1.5rem;
+    font-size: 16px;
+    font-weight: 800;
+}
+.demoform_group2_part3 p i{
+    
+    padding: 0 0.2rem 0 0;
+}
+
+.demoform_group2_part4{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+   
+   
+}
+
+.demoform_group2_part4 form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 1rem 20px 0;
+ 
+}
+
+.demoform_group2_part4 .formsize{
+
+   
+    width: 100%;
+    /* display: flex; */
+    border: 1px solid #000;
+    font-size: 18px;
+    padding: 0.6rem;
+    margin: 1rem 1rem 1rem 0;
+}
+
+.demoform_group2_part4 form input:focus{
+    outline: none;
+    box-shadow: 3px 3px #4bff2a;
+}
+
+.demoform_group2_part4 form label{
+    display: flex;
+    margin: 0.5rem 1rem 0.2rem 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demoform_group2_part4 form label p{
+    padding: 0 0.4rem 0;
+}
+
+.demoform_group2_part4 form label input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.demoform_group2_part4 form button{
+    background-color: #4bff2a;
+    box-shadow: 3px 3px #4bff2a;
+    border: 1px solid #000;
+    margin: 1rem 1rem 1rem 0;
+    font-size: 14px;
+    font-weight:600;
+    padding: 0.5rem;
+    width: 104%;
+    max-width: 800px;
+}
+
+.demoform_group2_part4 form button:hover{
+    outline: none;
+    box-shadow: 3px 3px #000;
+}
+
+
+@media only screen and (max-width:1050px){
+    .demoform{
+        display: flex;
+        flex-direction: column;
+        padding: 60px 15%;
+        font-family: "Open Sans", sans-serif;
+        justify-content: center;
+        align-content: center;
+       
+    }
+}
+
+
+@media only screen and (max-width:800px){
+    .demoform{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 5%;
+        font-family: "Open Sans", sans-serif;
+        justify-content: center;
+        align-content: center;
+       
+    }
+
+    
+.demoform_group2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    box-shadow: 3px 3px #4bff2a;
+    padding: 60px 30px;
+    background: #f8f8ff;
+    margin-top: 5px;
+}
+
+}
+
+
+
+
+@media only screen and (max-width:480px){
+    .demoform_group2{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border: 1px solid black;
+        box-shadow: 3px 3px #4bff2a;
+        padding: 50px 20px;
+        background: #f8f8ff;
+        margin-top: 2px;
+    }
+
+    .demoform_group2_part1{
+        display: flex;
+   
+        font-size: 35px;
+        font-weight: 550;
+        padding: 0 1rem 0;
+    
+    }
+    
+    .demoform_group2_part2{
+        display: flex;
+   
+        font-size: 20px;
+        padding: 1rem;
+        font-weight: 600;
+    }
+    
+    .demoform_group2_part3{
+        display: flex;
+        flex-direction: column;
+       
+       
+    }
+    
+    .demoform_group2_part3 p{
+        padding: 0  0 0 1.5rem;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+}

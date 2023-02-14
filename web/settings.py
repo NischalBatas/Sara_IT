@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-atm=b9*(d%*#x)uz&w8^nryygi2yr$th360(j+jb3y)9w143o7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','192.168.1.89:8000']
 
 
 # Application definition
@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'onlinesite.views.templatess'
             ],
         },
     },
@@ -132,6 +133,7 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='nischal.batash@gmail.com'
 EMAIL_HOST_PASSWORD='abutsvpujwytbzft'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

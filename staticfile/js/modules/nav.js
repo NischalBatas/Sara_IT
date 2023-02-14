@@ -88,7 +88,7 @@ export function drawNav() {
                             Cancel Anytime
                         </li>
                     </ul>
-                    <form class="signup_popup-form form d-flex flex-column" action="#" method="post" data-type="signup">
+                    <forms class="signup_popup-forms forms d-flex flex-column" action="#" method="post" data-type="signup">
                         <input class="field required" type="text" placeholder="Name">
                         <input class="field required" type="text" data-type="email" placeholder="E-mail">
                         <input class="field required" type="password" placeholder="Password">
@@ -101,7 +101,7 @@ export function drawNav() {
                             </label>
                         </div>
                         <button class="btn btn--neon" type="submit">Send</button>
-                    </form>
+                    </forms>
         `
                 }, 'signup_popup')
                 validateForm('[data-type="signup"]');

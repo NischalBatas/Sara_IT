@@ -1,0 +1,69 @@
+{%load static%}
+{%static 'images' as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get demo</title>
+    <link rel="stylesheet" href="{% static 'css/demoform.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="{%static 'img/icon.png'%}">
+    <style>
+        .demoform_group1 a:hover {
+            text-decoration: none;
+            box-shadow: 3px 3px #4bff2a;
+            scale: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'messages.html'%}
+    <!-- <button class="pressbtn">Press</button> -->
+    <div class="demoform">
+        <div class="demoform_group1">
+            <a href="{% url 'index'%}"><button><i class="fa fa-close"></i></button></a>
+        </div>
+        <div class="demoform_group2">
+            <div class="demoform_group2_part1">
+                <p>Talk To Us</p>
+            </div>
+            <div class="demoform_group2_part2">
+                <div></div>
+                <p>Drop your Query here</p>
+            </div>
+            <!-- <div class="demoform_group2_part3">
+                <p><i class="fa fa-check"></i> No credit card required</p>
+                <p><i class="fa fa-check"></i>14-day free trial</p>
+                <p><i class="fa fa-check"></i>Cancel Anytime</p>
+            </div> -->
+            <div class="demoform_group2_part4">
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <input class="formsize" required type="text" placeholder="Name" name="d_name">
+                    <input class="formsize" required type="text" placeholder="E-mail" name="d_email">
+                    <input class="formsize" required type="number" placeholder="Phone number" name="d_number">
+                    <input class="formsize" required type="text" placeholder="Subject" name="d_subject" >
+
+                    <label>
+                        <input type="checkbox" checked="checked" required>
+                        <p>I agree with terms & Conditions</p>
+                    </label>
+                    <button type="submit">SEND</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="/jquery.js"></script>
+    <script src="/demo/demoform.js"></script>
+</body>
+
+</html>
+
+<!-- facebook intra twitter linkdei whatsup-->

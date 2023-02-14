@@ -3,7 +3,18 @@ from django.core.validators import FileExtensionValidator
 # Create your models here.
 
 class logo(models.Model):
-    logo_img=models.ImageField(upload_to='img/')
+    logo_img=models.FileField(upload_to='svgs/')
+
+class demo(models.Model):
+    demo_name=models.CharField(max_length=200)
+    demo_email=models.EmailField()
+    demo_pnumber=models.CharField(max_length=200)
+    demo_subject=models.CharField(max_length=200)
+    
+class feedbackForm(models.Model):
+    f_name=models.CharField(max_length=150)
+    f_email= models.EmailField()
+    f_messages=models.TextField()
 
 class group1(models.Model):
     title = models.CharField(max_length=200)
@@ -207,3 +218,8 @@ class prices6(models.Model):
     model_number=models.CharField(max_length=200, blank=True)
     service=models.CharField(max_length=200, blank=True)
     plan_bill=models.CharField(max_length=200, blank=True)
+
+
+class footerMedia(models.Model):
+    icon_name=models.CharField(max_length=200)
+    icon_links=models.CharField(max_length=400)
